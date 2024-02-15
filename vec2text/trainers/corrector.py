@@ -78,11 +78,6 @@ class Corrector(BaseTrainer):
         assert self.args.fp16 == self.inversion_trainer.args.fp16
         assert self.args.bf16 == self.inversion_trainer.args.bf16
 
-        #### added for defense mechanisms #################################
-        self.noise_level = 0.0
-        self.defense_algo = "gaussian"
-        self.doc_lang = "en"
-
     def evaluation_loop(
         self, dataloader: torch.utils.data.DataLoader, *args, **kwargs
     ) -> transformers.trainer_utils.EvalLoopOutput:
@@ -418,34 +413,6 @@ class Corrector(BaseTrainer):
 
         # Re-embed generated text so we can rerank, and track the best we've seen so far.
         hypothesis_embedding = self.embed_generated_hypothesis(input_ids=gen_text_ids)
-
-        ################################################################
-        # defense mechanism
-        # (batch, ...)
-        # if self.defense_algo == "gaussian":
-        #     if self.noise_level > 0:
-        #         hypothesis_embedding += self.noise_level * torch.randn(
-        #             hypothesis_embedding.shape, device=hypothesis_embedding.device
-        #         )
-        # elif self.defense_algo == "langid":
-        #     self.doc_lang_id = lang2ids[self.doc_lang]
-        #     hypothesis_embedding[:, 0] = self.doc_lang_id
-        #
-        # elif self.defense_algo == "langunk":
-        #     embeddings_mean = torch.mean(hypothesis_embedding, axis=1)
-        #     embeddings_mean = torch.reshape(embeddings_mean, (-1, 1))
-        #     hypothesis_embedding = torch.sub(hypothesis_embedding, embeddings_mean)
-        #
-        # elif self.defense_algo == "langmean":
-        #     embeddings_mean = torch.mean(hypothesis_embedding, axis=1)
-        #     embeddings_mean = torch.reshape(embeddings_mean, (-1, 1))
-        #     hypothesis_embedding_subtracted = torch.sub(hypothesis_embedding, embeddings_mean)
-        #     hypothesis_embedding -= hypothesis_embedding_subtracted
-        #
-        # else:
-        #     print("no defense")
-            # hypothesis_embedding = hypothesis_embedding
-        ################################################################
 
         if num_recursive_steps_so_far == 0:
             batch_size = frozen_embeddings.shape[0]

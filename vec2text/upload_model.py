@@ -12,7 +12,7 @@ from huggingface_hub import login as huggingface_login
 
 from vec2text.aliases import load_model_from_alias
 
-access_token = "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"
+access_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 huggingface_login(token=access_token)
 
