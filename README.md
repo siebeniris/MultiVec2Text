@@ -1,6 +1,6 @@
 # Multilingual Vec2Text 
 
-<img src="overview.png" width="600"/>
+<img src="overview.png" width="1000"/>
 
 Multilingual Vec2Text supports research in Text Embedding Inversion Security in Language Models, extending Jack Morris' [Vec2Text](https://github.com/jxmorris12/vec2text) with __Ad-hoc Translation__ and __Masking Defense Mechanism__. We investigate throughly multilingual and crosslingual text reconstructions, and potential defense mechanisms.
 
