@@ -11,7 +11,7 @@ and potential defense mechanisms.
 All the trained models are on Huggingface repo.
 
 
-There is documentation about the extended functions and features of this repository compared to `Vec2Text`,
+There is documentation of the extended functions and features of this repository compared to `Vec2Text`,
 see [documentation](https://github.com/siebeniris/MultiVec2Text/wiki/New-Functions-and-Features,-extended-upon-Vec2Text),
 which is under continuous maintenace.
 
@@ -59,7 +59,7 @@ experiment, trainer = analyze_utils.load_experiment_and_trainer_from_pretrained(
 
 trainer, device = trainer_attributes(trainer, experiment)
 trainer.num_gen_recursive_steps = 10
-trainer.sequence_beam_width = 
+trainer.sequence_beam_width = xx
 
 evaluate_samples(trainer, device, samples)
 
