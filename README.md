@@ -20,7 +20,7 @@ which is under continuous maintenace.
 <img src="images/overview.png" width="1000"/>
 
 
-The tutorials for setting up experiments on supercomputer nodes such as __[LUMI](https://docs.lumi-supercomputer.eu/)__ is in Wiki pages. 
+The tutorials for setting up experiments on supercomputer nodes such as __[LUMI](https://docs.lumi-supercomputer.eu/)__ will be in Wiki pages. 
 All the scripts for running experiments _will be_ provided in the GitHub repository. 
 GitHub is still under construction.
 
