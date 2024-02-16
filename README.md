@@ -59,7 +59,8 @@ experiment, trainer = analyze_utils.load_experiment_and_trainer_from_pretrained(
 
 trainer, device = trainer_attributes(trainer, experiment)
 trainer.num_gen_recursive_steps = 10
-trainer.sequence_beam_width = xx
+# set sbeam
+# trainer.sequence_beam_width = xx
 
 evaluate_samples(trainer, device, samples)
 
