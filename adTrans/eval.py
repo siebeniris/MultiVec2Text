@@ -3,13 +3,12 @@ import os.path
 import pandas as pd
 import plac
 import scipy.stats
-import tqdm
 import collections
 import evaluate
 import nltk
 import numpy as np
 
-from typing import Callable, Dict, List, Tuple, Union
+from typing import List, Union
 
 
 def sem(L: List[float]) -> float:
@@ -139,7 +138,6 @@ def eval_metrics(filepath):
 
     metrics_preds = text_comparison_metics(predictions=preds, references=references)
 
-
     print("metrics preds/ reference")
     print(metrics_preds)
     metrics = text_comparison_metics(predictions=translations, references=references)
@@ -161,7 +159,8 @@ def generating_for_sequences(filepath):
     translations = df["pred_translated"].str.lower().tolist()
     references = df["labels"].tolist()
 
-    preds_bleu_results, preds_exact_matches, preds_f1s = text_comparison_metics(predictions=preds, references=references)
+    preds_bleu_results, preds_exact_matches, preds_f1s = text_comparison_metics(predictions=preds,
+        references=references)
     df["pred_bleu"] = preds_bleu_results
     df["pred_exact_match"] = preds_exact_matches
     df["pred_tokens_f1"] = preds_f1s
@@ -172,29 +171,31 @@ def generating_for_sequences(filepath):
     df["trans_exact_match"] = trans_exact_matches
     df["trans_tokens_f1"] = trans_f1s
 
-
     df.to_csv(os.path.join(filedir, "eval_sequences.csv"))
 
-# def processing_one_model(model_dir):
-#     subdirs = ["mtg_de", "mtg_es", "mtg_fr", "nq_en", "mtg_en"]
-#     # subdirs= ["nq"]
-#     for subdir in os.listdir(model_dir):
-#
-#         if subdir in subdirs:
-#             dirpath = os.path.join(model_dir, subdir)
-#             print(f"evaluating model {dirpath}")
-#             outfile = os.path.join(dirpath, "eval_results.csv")
-#             # outfile = os.path.join(dirpath, "eval_sequences.csv")
-#
-#             print(f"outfile {outfile}")
-#             #if not os.path.exists(outfile):
-#
-#             filepath = os.path.join(dirpath, "decoded_sequences_translated.csv")
-#             print("evaluating....")
-#             # generating_for_sequences(filepath)
-#             eval_metrics(filepath)
-#             #else:
-#                 # print(f"file {outfile} already exists")
+
+def processing_one_model(model_dir, eval=None):
+    subdirs = ["mtg_de", "mtg_es", "mtg_fr", "nq_en", "mtg_en"]
+    for subdir in os.listdir(model_dir):
+
+        if subdir in subdirs:
+            dirpath = os.path.join(model_dir, subdir)
+            print(f"evaluating model {dirpath}")
+            outfile = os.path.join(dirpath, "eval_results.csv")
+            filepath = os.path.join(dirpath, "decoded_sequences_translated.csv")
+            print("evaluating....")
+            eval_metrics(filepath)
+            # if not os.path.exists(outfile):
+
+            if eval == "sequences":
+                print("evaluating sequences...")
+                outfile = os.path.join(dirpath, "eval_sequences.csv")
+                generating_for_sequences(filepath)
+
+            print(f"outfile {outfile}")
+
+            # else:
+            # print(f"file {outfile} already exists")
 
 
 if __name__ == '__main__':

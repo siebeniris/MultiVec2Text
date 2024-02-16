@@ -91,9 +91,6 @@ output:
 
 
 
-
-
-
 ## Ad-Hoc Translation (AdTrans)
 The codes for AdTrans evaluation is in `adTrans`.
 

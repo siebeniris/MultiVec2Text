@@ -25,7 +25,6 @@ def processing_one_file(filepath, source_lang, target_lang):
 
 def processing_one_model(model_dir):
     subdirs = ["mtg_de", "mtg_es", "mtg_fr", "nq_en", "mtg_en"]
-    # subdirs =["nq"]
     for subdir in os.listdir(model_dir):
         target_lang = subdir.split("_")[-1]
         # target_lang = "en"
