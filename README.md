@@ -75,7 +75,7 @@ output:
 
 
 
-[pred]  it was the best of times, it was the worst of times, it was the age of wisdom
+[pred] it was the best of times, it was the worst of times, it was the age of wisdom
 [true] it was the best of times, it was the worst of times, it was the age of wisdom
 
 
@@ -109,7 +109,10 @@ __Inversion Models Limitations__
 we used [MTG](https://aclanthology.org/2022.findings-naacl.192/) benchmark in English, French, German, and Spanish, 
 the texts in the datasets were given as lower-cased, so our trained inversion `ME5-based` models
 work mostly for lower-cased texts as well. 
-We will address this limitation for future work.
+Along with dataset limitation, the best performing models invert sentences within the length of 32 tokens.
+We will address these limitation for future work.
+
+
 
 
 
