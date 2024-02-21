@@ -24,6 +24,8 @@ The tutorials for setting up experiments on supercomputer nodes such as __[LUMI]
 All the scripts for running experiments _will be_ provided in the GitHub repository. 
 GitHub is still under construction.
 
+## Experiments (Inversion attack simulations)
+<img src="images/simulation.png" width="1000"/>
 
 
 ## Setup
