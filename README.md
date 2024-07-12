@@ -1,19 +1,43 @@
-# Multilingual Vec2Text 
+# Text Embedding Inversion Attacks on Multilingual Language Models
 
 * Schematic Overview of a Text Embedding Inversion Attack.
 <img src="images/attack.png" alt="attack" width="400">
 
 Multilingual Vec2Text supports research in Text Embedding Inversion Security in Language Models, 
 extending Jack Morris' [Vec2Text](https://github.com/jxmorris12/vec2text) with __Ad-hoc Translation__ and __Masking Defense Mechanism__. 
-We investigate throughly multilingual and crosslingual text reconstructions, 
-and potential defense mechanisms.
+We investigate thoroughly multilingual and cross-lingual text inversion attacks, 
+and defense mechanisms. This repository contains code for the __ACL 2024__ long paper [Text Embedding Inversion Attacks on Multilingual Language Models
+](https://arxiv.org/abs/2401.12192).
+The poster is [online](multilingual_text2vec_poster.pdf).
 
-All the trained models are on Huggingface repo.
+
+All the trained inversion models are on [Huggingface](https://huggingface.co/yiyic).
+All the models are trained with [T5-base](https://huggingface.co/google-t5/t5-base) as the external encoder-decoder.
 
 
-There is documentation of the extended functions and features of this repository compared to `Vec2Text`,
-see [documentation](https://github.com/siebeniris/MultiVec2Text/wiki/New-Functions-and-Features,-extended-upon-Vec2Text),
-which is under continuous maintenace.
+Black-box Encoder | Training Data        | Base Model | Corrector Model
+--- |----------------------| --- | ---
+[GTR-base](https://huggingface.co/sentence-transformers/gtr-t5-base) | 5M Natural Questions | [yiyic/t5_gtr_base_nq_32_inverter](https://huggingface.co/yiyic/t5_gtr_base_nq_32_inverter) | [yiyic/t5_gtr_base_nq_32_corrector](https://huggingface.co/yiyic/t5_gtr_base_nq_32_corrector) 
+[ME5-base](https://huggingface.co/intfloat/multilingual-e5-base) | 5M Natural Questions | [yiyic/t5_me5_base_nq_32_inverter](https://huggingface.co/yiyic/t5_me5_base_nq_32_inverter) | [yiyic/t5_me5_base_nq_32_corrector](https://huggingface.co/yiyic/t5_me5_base_nq_32_corrector)
+[ME5-base](https://huggingface.co/intfloat/multilingual-e5-base) | 5M MTG Spanish       | [yiyic/t5_me5_base_mtg_es_5m_32_inverter](https://huggingface.co/yiyic/t5_me5_base_mtg_es_5m_32_inverter) | [yiyic/t5_me5_base_mtg_es_5m_32_corrector](https://huggingface.co/yiyic/t5_me5_base_mtg_es_5m_32_corrector)
+[ME5-base](https://huggingface.co/intfloat/multilingual-e5-base) | 5M MTG French        | [yiyic/t5_me5_base_mtg_fr_5m_32_inverter](https://huggingface.co/yiyic/t5_me5_base_mtg_fr_5m_32_inverter) | [yiyic/t5_me5_base_mtg_fr_5m_32_corrector](https://huggingface.co/yiyic/t5_me5_base_mtg_fr_5m_32_corrector)
+[ME5-base](https://huggingface.co/intfloat/multilingual-e5-base) | 5M MTG German        | [yiyic/t5_me5_base_mtg_de_5m_32_inverter](https://huggingface.co/yiyic/t5_me5_base_mtg_de_5m_32_inverter) | [yiyic/t5_me5_base_mtg_de_5m_32_corrector](https://huggingface.co/yiyic/t5_me5_base_mtg_de_5m_32_corrector)
+[ME5-base](https://huggingface.co/intfloat/multilingual-e5-base) | 5M MTG English       | [yiyic/t5_me5_base_mtg_en_5m_32_inverter](https://huggingface.co/yiyic/t5_me5_base_mtg_en_5m_32_inverter) | [yiyic/t5_me5_base_mtg_en_5m_32_corrector](https://huggingface.co/yiyic/t5_me5_base_mtg_en_5m_32_corrector)
+[ME5-base](https://huggingface.co/intfloat/multilingual-e5-base) | 5M MTG Multilingual  | [yiyic/t5_me5_base_mtg_en_fr_de_es_5m_32_inverter](https://huggingface.co/yiyic/t5_me5_base_mtg_en_fr_de_es_5m_32_inverter) | [yiyic/t5_me5_base_mtg_en_fr_de_es_5m_32_corrector](https://huggingface.co/yiyic/t5_me5_base_mtg_en_fr_de_es_5m_32_corrector)
+
+
+
+
+
+
+
+
+
+[//]: # (There is documentation of the extended functions and features of this repository compared to `Vec2Text`,)
+
+[//]: # (see [documentation]&#40;https://github.com/siebeniris/MultiVec2Text/wiki/New-Functions-and-Features,-extended-upon-Vec2Text&#41;,)
+
+[//]: # (which is under continuous maintenace.)
 
 
 * Overview of Multilingual Vec2Text.
@@ -115,8 +139,15 @@ Along with dataset limitation, the best performing models invert sentences withi
 We will address these limitation for future work.
 
 
+## Cite our Paper 
 
-
-
+```
+@article{chen2024text,
+  title={Text Embedding Inversion Attacks on Multilingual Language Models},
+  author={Chen, Yiyi and Lent, Heather and Bjerva, Johannes},
+  journal={arXiv preprint arXiv:2401.12192},
+  year={2024}
+}
+```
 
 
