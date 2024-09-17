@@ -142,11 +142,22 @@ We will address these limitation for future work.
 ## Cite our Paper 
 
 ```
-@article{chen2024text,
-  title={Text Embedding Inversion Attacks on Multilingual Language Models},
-  author={Chen, Yiyi and Lent, Heather and Bjerva, Johannes},
-  journal={arXiv preprint arXiv:2401.12192},
-  year={2024}
+@inproceedings{chen-etal-2024-text,
+    title = "Text Embedding Inversion Security for Multilingual Language Models",
+    author = "Chen, Yiyi  and
+      Lent, Heather  and
+      Bjerva, Johannes",
+    editor = "Ku, Lun-Wei  and
+      Martins, Andre  and
+      Srikumar, Vivek",
+    booktitle = "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = aug,
+    year = "2024",
+    address = "Bangkok, Thailand",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.acl-long.422",
+    pages = "7808--7827",
+    abstract = "Textual data is often represented as real-numbered embeddings in NLP, particularly with the popularity of large language models (LLMs) and Embeddings as a Service (EaaS). However, storing sensitive information as embeddings can be susceptible to security breaches, as research shows that text can be reconstructed from embeddings, even without knowledge of the underlying model. While defence mechanisms have been explored, these are exclusively focused on English, leaving other languages potentially exposed to attacks. This work explores LLM security through multilingual embedding inversion. We define the problem of black-box multilingual and crosslingual inversion attacks, and explore their potential implications. Our findings suggest that multilingual LLMs may be more vulnerable to inversion attacks, in part because English-based defences may be ineffective. To alleviate this, we propose a simple masking defense effective for both monolingual and multilingual models. This study is the first to investigate multilingual inversion attacks, shedding light on the differences in attacks and defenses across monolingual and multilingual settings.",
 }
 ```
 
